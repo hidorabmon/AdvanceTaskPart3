@@ -56,15 +56,46 @@ FROM
         </Field>
       </Fields>
     </DataSet>
+    <DataSet Name="City">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandText>select City from [VCitySubrub]</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="city">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>City</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Suburb">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@City">
+            <Value>=Parameters!City.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandText>select suburb from [VCitySubrub] where city = @City</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="suburb">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>suburb</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
     <DataSet Name="DataSet2">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@VARIABLENAME1">
-            <Value>=Parameters!VARIABLENAME1.Value</Value>
+          <QueryParameter Name="@Suburb">
+            <Value>=Parameters!Suburb.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@VARIABLENAME2">
-            <Value>=Parameters!VARIABLENAME2.Value</Value>
+          <QueryParameter Name="@City">
+            <Value>=Parameters!City.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
@@ -98,22 +129,6 @@ FROM
         <Field Name="Lat">
           <rd:TypeName>System.String</rd:TypeName>
           <DataField>Lat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="PostFilter">
-      <Query>
-        <DataSourceName>DataSource1</DataSourceName>
-        <CommandText>select distinct suburb,city from [dbo].[DimGeography]</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="suburb">
-          <rd:TypeName>System.String</rd:TypeName>
-          <DataField>suburb</DataField>
-        </Field>
-        <Field Name="city">
-          <rd:TypeName>System.String</rd:TypeName>
-          <DataField>city</DataField>
         </Field>
       </Fields>
     </DataSet>
@@ -1257,38 +1272,28 @@ FROM
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="VARIABLENAME1">
+    <ReportParameter Name="City">
       <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>Acland</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>Suburb</Prompt>
+      <Prompt>City</Prompt>
       <ValidValues>
         <DataSetReference>
-          <DataSetName>PostFilter</DataSetName>
-          <ValueField>suburb</ValueField>
-          <LabelField>suburb</LabelField>
+          <DataSetName>City</DataSetName>
+          <ValueField>city</ValueField>
+          <LabelField>city</LabelField>
         </DataSetReference>
       </ValidValues>
       <cl:ComponentMetadata>
         <cl:HideUpdateNotifications>true</cl:HideUpdateNotifications>
       </cl:ComponentMetadata>
     </ReportParameter>
-    <ReportParameter Name="VARIABLENAME2">
+    <ReportParameter Name="Suburb">
       <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>Toowoomba</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>City</Prompt>
+      <Prompt>Suburb</Prompt>
       <ValidValues>
         <DataSetReference>
-          <DataSetName>PostFilter</DataSetName>
-          <ValueField>city</ValueField>
-          <LabelField>city</LabelField>
+          <DataSetName>Suburb</DataSetName>
+          <ValueField>suburb</ValueField>
+          <LabelField>suburb</LabelField>
         </DataSetReference>
       </ValidValues>
       <cl:ComponentMetadata>
@@ -1302,14 +1307,14 @@ FROM
       <NumberOfRows>2</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>VARIABLENAME1</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>VARIABLENAME2</ParameterName>
+          <ParameterName>Suburb</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>City</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
