@@ -59,7 +59,7 @@
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>GetPublication</CommandText>
+        <CommandText>GetSchool</CommandText>
       </Query>
       <Fields>
         <Field Name="Suburb">
@@ -70,13 +70,13 @@
           <rd:TypeName>System.String</rd:TypeName>
           <DataField>City</DataField>
         </Field>
-        <Field Name="Mode">
+        <Field Name="Type">
           <rd:TypeName>System.String</rd:TypeName>
-          <DataField>Mode</DataField>
+          <DataField>Type</DataField>
         </Field>
-        <Field Name="StopName">
+        <Field Name="Name">
           <rd:TypeName>System.String</rd:TypeName>
-          <DataField>StopName</DataField>
+          <DataField>Name</DataField>
         </Field>
       </Fields>
     </DataSet>
@@ -109,10 +109,10 @@
                   <Width>25mm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>21.825mm</Width>
+                  <Width>38.75833mm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>72.09584mm</Width>
+                  <Width>66.97123mm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -199,7 +199,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Mode</Value>
+                                  <Value>Type</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -234,7 +234,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Stop Name</Value>
+                                  <Value>Name</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -338,15 +338,15 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Mode">
-                          <rd:DefaultName>Mode</rd:DefaultName>
+                        <Textbox Name="Type">
+                          <rd:DefaultName>Type</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Mode.Value</Value>
+                                  <Value>=Fields!Type.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <Format>'$'0.00;'$'0.00-</Format>
@@ -375,15 +375,15 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="StopName">
-                          <rd:DefaultName>StopName</rd:DefaultName>
+                        <Textbox Name="Name">
+                          <rd:DefaultName>Name</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!StopName.Value</Value>
+                                  <Value>=Fields!Name.Value</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <Format>'$'0.00;('$'0.00)</Format>
@@ -436,7 +436,7 @@
             <Top>35.04495mm</Top>
             <Left>6.05367mm</Left>
             <Height>12mm</Height>
-            <Width>150.05983mm</Width>
+            <Width>161.86855mm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -452,7 +452,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Task 16 Public Transport</Value>
+                    <Value>Task 17 Local School</Value>
                     <Style>
                       <FontSize>14pt</FontSize>
                       <FontWeight>Bold</FontWeight>
@@ -485,7 +485,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>160.52322mm</Width>
+      <Width>173.04683mm</Width>
       <Page>
         <PageFooter>
           <Height>15.10872mm</Height>
